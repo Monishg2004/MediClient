@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCompanion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo" id="homeButton">
+                <i class="fas fa-stethoscope logo-icon"></i>
+                <h1>MediCompanion</h1>
+            </div>
+            <div class="nav-buttons">
+                <button id="patientModeBtn" class="mode-button">
+                    <i class="fas fa-user-injured"></i> Patient Mode
+                </button>
+                <button id="doctorModeBtn" class="mode-button">
+                    <i class="fas fa-user-md"></i> Doctor Mode
+                </button>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggleBtn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Home Section -->
+        <section id="homeSection" class="section active">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Welcome to <span class="brand-text">MediCompanion</span></h1>
+                    <p class="hero-subtitle">The future of medical consultations</p>
+                    <p>Experience seamless doctor-patient interactions enhanced by AI.</p>
+                    <div class="hero-buttons">
+                        <button id="getStartedBtn" class="hero-button primary">
+                            <i class="fas fa-rocket"></i> Get Started
+                        </button>
+                        <button id="learnMoreBtn" class="hero-button secondary">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon diagnosis-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>AI-Powered Diagnosis</h3>
+                    <p>Advanced algorithms assist in preliminary diagnosis and symptom analysis with high accuracy.</p>
+                    <div class="feature-hover">
+                        <button class="feature-btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon assistant-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>24/7 Virtual Assistant</h3>
+                    <p>Round-the-clock medical guidance and support at your fingertips, whenever you need it.</p>
+                    <div class="feature-hover">
+                        <button class="feature-btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon documentation-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>Smart Documentation</h3>
+                    <p>Automated consultation notes and medical record management to streamline your workflow.</p>
+                    <div class="feature-hover">
+                        <button class="feature-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <h2>What Our Users Say</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>MediCompanion has transformed how I manage my practice. The AI diagnostics save me hours each week.</p>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Asmitha</h4>
+                                <p>Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>As a patient, I appreciate being able to get clear explanations about my medications anytime.</p>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Praveen</h4>
+                                <p>Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patient Mode Section -->
+        <section id="patientSection" class="section">
+            <div class="patient-container">
+                <div class="chat-area">
+                    <div class="chat-header">
+                        <h2><i class="fas fa-robot"></i> Chat with MediCompanion</h2>
+                        <div class="chat-controls">
+                            <button id="clearChatBtn" class="control-btn" title="Clear chat">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <button id="soundToggleBtn" class="control-btn active" title="Toggle sound">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="patientChatMessages" class="chat-messages">
+                        <div class="message bot">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-bubble">
+                                <div class="message-info">
+                                    <span class="message-sender">Paco</span>
+                                    <span class="message-time">Just now</span>
+                                </div>
+                                <div class="message-content">
+                                    Hello, I'm Paco, your medical knowledge assistant. How can I assist you today with your prescriptions?
+                                </div>
+                                <div class="message-actions">
+                                    <button class="audio-btn" title="Play audio">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <button id="patientVoiceInputBtn" class="voice-btn" title="Voice input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <input type="text" id="patientMessageInput" placeholder="Type your message...">
+                        <button id="sendPatientMessage">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="patient-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-heart"></i> Health Tips</h3>
+                        <ul class="health-tips">
+                            <li><i class="fas fa-running"></i> Regular exercise boosts immunity</li>
+                            <li><i class="fas fa-pills"></i> Take medications as prescribed</li>
+                            <li><i class="fas fa-apple-alt"></i> Maintain a balanced diet</li>
+                            <li><i class="fas fa-bed"></i> Get adequate sleep</li>
+                            <li><i class="fas fa-tint"></i> Stay hydrated throughout the day</li>
+                            <li><i class="fas fa-smoking-ban"></i> Avoid smoking and excessive alcohol</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card emergency">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Emergency Contact</h3>
+                        <p>If you're experiencing a medical emergency, please call emergency services immediately:</p>
+                        <div class="emergency-number">9876543201</div>
+                        <p class="emergency-text">For non-emergencies, contact your primary care physician.</p>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-history"></i> Previous Consultations</h3>
+                        <div class="consultation-filter">
+                            <input type="text" id="consultationSearch" placeholder="Search consultations...">
+                            <button id="sortConsultationsBtn">
+                                <i class="fas fa-sort-amount-down"></i>
+                            </button>
+                        </div>
+                        <div id="patientConsultationsList" class="consultation-list">
+                            <!-- Previous consultations will be loaded here -->
+                            <div class="empty-state">
+                                <i class="fas fa-folder-open"></i>
+                                <p>No previous consultations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctor Mode Section -->
+        <section id="doctorSection" class="section">
+            <div class="doctor-container">
+                <div class="doctor-main">
+                    <div class="panel diagnosis-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-heartbeat"></i> Potential Diagnosis</h2>
+                            <div class="panel-controls">
+                                <button class="panel-control refresh-btn" title="Refresh diagnosis">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="panel-control expand-btn" title="Expand panel">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="diagnosisContent" class="panel-content scrollable">
+                            <div class="empty-state">
+                                <i class="fas fa-stethoscope"></i>
+                                <p>Start a recording to generate potential diagnoses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel questions-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-question-circle"></i> Suggested Questions</h2>
+                            <div class="panel-controls">
+                                <button class="panel-control refresh-btn" title="Refresh questions">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="panel-control expand-btn" title="Expand panel">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="questionsContent" class="panel-content scrollable">
+                            <div class="empty-state">
+                                <i class="fas fa-question"></i>
+                                <p>Start a recording to generate suggested questions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel conversation-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-comments"></i> Live Conversation</h2>
+                            <div class="recording-controls">
+                                <div class="recording-indicator">
+                                    <span class="recording-dot"></span>
+                                    <span class="recording-text">Not Recording</span>
+                                </div>
+                                <button id="startRecordingBtn" class="record-btn">
+                                    <i class="fas fa-microphone"></i> Start Recording
+                                </button>
+                                <button id="stopRecordingBtn" class="record-btn stop" disabled>
+                                    <i class="fas fa-stop-circle"></i> Stop Recording
+                                </button>
+                            </div>
+                        </div>
+                        <div id="transcriptContent" class="panel-content transcript scrollable">
+                            <div class="empty-state">
+                                <i class="fas fa-microphone-alt"></i>
+                                <p>Start recording to capture the conversation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-sidebar">
+                    <div class="panel notes-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-file-medical"></i> Consultation Notes</h2>
+                            <div class="panel-controls">
+                                <button class="panel-control" id="clearNotesBtn" title="Clear notes">
+                                    <i class="fas fa-eraser"></i>
+                                </button>
+                                <button class="panel-control expand-btn" title="Expand panel">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <textarea id="doctorNotes" placeholder="Enter your notes here..."></textarea>
+                        <div class="notes-buttons">
+                            <button id="generateNotesBtn" class="primary-btn">
+                                <i class="fas fa-magic"></i> Generate Notes
+                            </button>
+                            <button id="saveNotesBtn" class="secondary-btn">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel live-transcript-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-microphone-alt"></i> Live Transcript</h2>
+                        </div>
+                        <div id="liveTranscriptDisplay" class="panel-content live-transcript scrollable">
+                            <div class="empty-state">
+                                <i class="fas fa-comment-alt"></i>
+                                <p>Speech-to-text will appear here in real-time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel consultations-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-history"></i> Previous Consultations</h2>
+                            <div class="panel-controls">
+                                <button class="panel-control refresh-btn" id="refreshConsultationsBtn" title="Refresh list">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="consultation-filter">
+                            <input type="text" id="doctorConsultationSearch" placeholder="Search consultations...">
+                            <button id="doctorSortConsultationsBtn">
+                                <i class="fas fa-sort-amount-down"></i>
+                            </button>
+                        </div>
+                        <div id="doctorConsultationsList" class="consultation-list">
+                            <!-- Previous consultations will be loaded here -->
+                            <div class="empty-state">
+                                <i class="fas fa-folder-open"></i>
+                                <p>No previous consultations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="toast-icon"></i>
+        <span class="toast-message"></span>
+        <button class="toast-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p id="loadingText">Processing...</p>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Title</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+            <div class="modal-buttons">
+                <button id="modalPrimaryBtn" class="primary-btn">Confirm</button>
+                <button id="modalCloseBtn" class="secondary-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Player (Hidden) -->
+    <audio id="audioPlayer" style="display: none;"></audio>
+    
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
